@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/PTWorld.css">
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container contactWrap">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="bodyContent">
+            <div class="brandStrength">
+                <div class="title">
+                    <h3><b>BRAND STRENGTH</b><span>品牌实力</span></h3>
+                    <div class="border1"></div>
+                </div>
+                <div class="content">
+                    <ul class="team">
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footerImg"> <img src="imgs/img/footerBg.png" /></div>
+
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script>
+
+
+
+    var isEn = lang && lang == 'en';
+
+    function appendHtml(item,i,type){
+        var name = item.name ? isEn ?  item.e_name : item.name : '';
+        var introduce = isEn ? item.e_remark : item.remark;
+        var style = isEn ? 'en_lineHeight' : 'lineHeight';
+
+        var letter = type ? 'third' : 'first' ;
+        switch (i%5){
+            case 1:
+                letter = 'second';
+                break;
+            case 2:
+                letter = 'third';
+                break;
+            case 3:
+                letter = 'fouth';
+                break;
+            case 4:
+                letter = 'third';
+                break;
+        }
+        var html = i%2 == 0 ?  '<li class="'+letter+'"> <div class="innerBox"><div class="img"><img src="'+item.logo+'"/></div> <div class="txt"> <span>'+name+'</span> <p>'+introduce+'</p> </div> </div> </li>' : '<li class="'+letter+' right"> <div class="innerBox"> <div class="txt"><span>'+name+'</span><p>'+introduce+'</p> </div> <div class="img"><img src="'+item.logo+'"/></div> </div> </li>';
+
+        return html;
+    }
+
+
+    $.ajax({
+        type: "GET",
+        url: api+"brand_str",
+        dataType: "json",
+        success: function(data){
+
+            var brandStrengthPerson = data.filter(item => item.type == 1);
+            var brandStrengthOfficeS = data.filter(item => item.type == 2);
+
+            console.log(brandStrengthPerson,brandStrengthOffice)
+
+            var brandStrengthHtml = [];
+
+            $.each(brandStrengthPerson,function (i,item) {
+
+                brandStrengthHtml.push(appendHtml(item,i));
+            });
+            var tit = isEn ?  'PACO TORA OFFICE ALL OVER THE WORLD' :'遍布世界的PACO TORA办公中心';
+             brandStrengthHtml.push('<h3 class="tit_strength">'+tit+'</h3>');
+            $.each(brandStrengthOfficeS,function (i,item) {
+
+                brandStrengthHtml.push(appendHtml(item,i,'office'));
+
+            })
+
+
+            var brandStrengthOfficeHtml = [];
+            $.each(brandStrengthOffice,function (i,item) {
+                var letter = 'sixth';
+                switch (i){
+                    case 2:
+                        letter = 'seventh';
+                        break;
+                    case 4:
+                        letter = 'eighth';
+                        break;
+
+                }
+                if(i%2 == 0){
+
+                    var next = brandStrengthOffice[i+1];
+                    var name = isEn ?  item.name_en : item.name ;
+                    var name_next = isEn ?  next.name_en : next.name ;
+                    var html =  '<dd><img src="imgs/PT/brandStrengthOffice'+i+'.png"/><p>'+name+'</p></dd><dd><img src="imgs/PT/brandStrengthOffice'+(i+1)+'.png"/> <p>'+name_next+'</p> </dd>';
+                    html = '<li class="'+letter+' right itemBox"> <div class="innerBox"> <dl class="item">'+html+' </dl> </div> </li>'
+                    brandStrengthOfficeHtml.push(html);
+
+
+
+                }
+
+            });
+            var tit = isEn ?  'PACO TORA DESIGN TEAM' :'PACO TORA设计师团队';
+            var titHtml = '<h3 class="tit_strength" style="margin-top:10%">'+tit+'</h3>';
+            var str = titHtml + brandStrengthHtml.join('') + brandStrengthOfficeHtml.join('')
+            $('.team').html(str);
+
+        },
+        error:function () {
+
+        }
+
+    });
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

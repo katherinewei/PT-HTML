@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/PTWorld.css">
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container contactWrap">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="bodyContent">
+            <div class="brandDynamicDetailContent">
+
+                <div class="content">
+                   <div class="tit">
+                       <h1></h1>
+                       <p class="time"></p>
+                       <p class="author">   作者：<span></span></p>
+                   </div>
+                    <div class="wrap">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script>
+    var id = getQueryString('id');
+
+                $.ajax({
+                    type: "GET",
+                    url: api + "news_one?id="+id,
+                    dataType: "json",
+                    success: function(news){
+                        var res = news.news;
+                        $('.tit h1').html(res.title);
+                        $('.tit .time').html(res.create_date);
+                        $('.tit .author span').html(res.create_by || '佚名' );
+                        $('.wrap').html(res.content);
+
+                    },
+                    error:function () {
+                        messageTip('无法获取新闻详情');
+                    }
+
+                });
+</script>
+</body>
+</html>

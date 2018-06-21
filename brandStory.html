@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/PTWorld.css">
+    <script src="js/data.js"></script>
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container contactWrap">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="bodyContent">
+            <div class="brandStory">
+                <div class="title">
+                    <h3><b>BRAND STORY</b><span>品牌故事</span></h3>
+                    <div class="border1"></div>
+                </div>
+                <div class="content">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footerImg"> <img src="imgs/img/footerBg.png" /></div>
+
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script>
+
+    var brandStoryHtml = [];
+    var isEn = lang && lang == 'en';
+    $.each(brandStory,function (i,item) {
+        var title = isEn ?  item.title_en : item.title ;
+        var desc = isEn ? item.desc_en : item.desc;
+        var html = i == 1 ? '<div class="img"  style="margin-right: 15px;"><img src="imgs/PT/brandStory'+i+'.png"/></div><div>'+desc+'</div>' : '<div><p style="margin-right: 15px;">'+desc+'</p></div><div class="img"><img src="imgs/PT/brandStory'+i+'.png"/></div>';
+        brandStoryHtml.push('<li><h4>'+title+'</h4><div class="mainContent">'+html+'</div></li>  ');
+    });
+    $('.brandStory ul').append(brandStoryHtml.join(''));
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/PT.css">
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container contactWrap">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="contactInner">
+                <div class="txt">
+                    <p></p>
+                    <img src="imgs/img/ewm_421.png"/>
+                    <p></p>
+                </div>
+        </div>
+        <div class="footer">
+
+        </div>
+
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script>
+    if(lang && lang == 'en' && $(window).width() < 450){
+        $('.txt').css({width:'75%','line-height':'16px'})
+    }
+    $('.txt p:eq(0)').html(string.club_txt);
+    $('.txt p:eq(1)').html(string.club_scan);
+</script>
+</body>
+</html>

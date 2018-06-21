@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/PTWorld.css">
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container contactWrap">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="contactInner">
+            <img src="imgs/PT/brandBG.png"/>
+                <div class="circle circle1"><a href="brandDynamic.html">
+                    <h4></h4>
+                    <i class="left"></i></a>
+                </div>
+            <div class="circle circle2"><a href="brandStory.html">
+                <h4></h4>
+                <i class="right"></i></a>
+            </div>
+            <div class="circle circle3"><a href="brandHistory.html">
+                <h4></h4>
+                <i class="right"></i></a>
+            </div>
+            <div class="circle circle4"><a href="brandStrength.html">
+                <h4></h4>
+                <i class="left"></i></a>
+            </div>
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+
+
+<script src="js/data.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script>
+
+    if(lang && lang == 'en'){
+        $('.circle h4').addClass('uppercase');
+    }
+
+
+    $('.circle1 h4').html(string.brandDynamic);
+    $('.circle2 h4').html(string.brandStory);
+    $('.circle3 h4').html(string.brandHistory);
+    $('.circle4 h4').html(string.brandStrength);
+
+    var callback = function(){
+        //$('.dialog .body').height($(window).height() - 40);
+    }
+    browserRedirect(callback)
+
+
+
+
+</script>
+</body>
+</html>

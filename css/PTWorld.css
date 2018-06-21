@@ -1,0 +1,571 @@
+.contactInner{
+    /*background: url("../imgs/PT/brandBG.jpg") no-repeat;*/
+    /*height:790px;*/
+    z-index: 1;
+    position: relative;
+}
+
+.circle{
+    width:136px;
+    height:136px;
+    border: 15px solid #6bc7b9;
+    border-radius: 50%;
+    box-shadow:0 0 9px #4e4d4e, inset 0 0 12px #b1adad;
+    background-color: #ffffff;
+    position: absolute;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+}
+.circle h4{
+    padding-top: 36px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.circle h4 p{
+    font-size: 14px;
+
+}
+.uppercase{
+    text-transform: uppercase
+}
+.circle i{
+    width:53px;
+    height: 17px;
+    display: block;
+    background: url("../imgs/img/icon.png") no-repeat 0 0;
+    margin: 5px auto 0;
+}
+.circle i.left{
+    background-position-y:-136px;
+}
+.circle i.right{
+    background-position-y:-160px;
+}
+.circle1{
+    /*top:489px;*/
+    /*left:103px;*/
+    top: 60%;
+    left: 10%;
+}
+.circle2{
+    /*top:127px;*/
+    /*left:504px;*/
+    top: 17%;
+    left: 41%;
+    border-color: #d0202e;
+}
+.circle3{
+    /*top:23px;*/
+    /*left:833px;*/
+    top: 5%;
+    right: 15%;
+    border-color: #fddd00;
+}
+.circle4{
+    /*top:347px;*/
+    /*left:854px;*/
+    top: 46%;
+    right: 17%;
+    border-color: #1a468d;
+}
+
+.bodyContent{
+    background: url("../imgs/PT/brandTopBg.png") no-repeat top center;
+    background-size: 100%;
+    padding-top: 10%;
+
+}
+.title{
+    font-size: 20px;
+    font-weight: bold;
+}
+.title span{
+    font-size: 18px;
+    /*font-weight: normal;*/
+}
+.bodyContent > div{
+    width:76%;
+    margin: 0 auto;
+
+}
+
+.brandDynamic  .content li{
+    border-bottom: 1px dashed #c4c4c4;
+    padding:12px 0;
+    overflow: hidden;
+    margin-top: 20px;
+
+}
+.bodyContent .content{
+    padding: 2% 0;
+}
+
+.brandDynamic   .content li img{
+    float: left;
+    padding-right: 20px;
+    max-width: 130px;
+}
+.brandDynamic  .content li h4{
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 23px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.brandDynamic  .content li .txt{
+    display: flex;
+}
+.brandDynamic  .content li p{
+    font-size: 16px;
+    color: #999;
+    flex: 0 0 80% 0;
+    letter-spacing: 1px;
+    line-height: 22px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    width:85%;
+}
+.brandDynamic  .content li span{
+    line-height: 22px;
+    font-size: 18px;
+    color: #666;
+    margin-right: 5px;
+}
+.brandDynamicDetailContent .tit{
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+}
+.brandDynamicDetailContent .tit h1{
+    font-size: 28px;
+    padding: 3% 0;
+}
+.brandDynamicDetailContent .wrap{
+    padding: 6% 0;
+}
+.brandDynamicDetailContent .wrap p{
+    text-indent: 2em;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 24px;
+}
+.brandDynamicDetailContent .wrap img{
+    margin: 2% auto;
+    max-width: 100%;
+    display: block;
+
+}
+
+
+.brandStory h4{
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 30px 0;
+    text-align: center;
+}
+.mainContent{
+    display: flex;
+
+}
+.brandStory p{
+    color: #333;
+    line-height: 30px;
+    letter-spacing: 1px;
+    text-indent: 2em;
+    font-size: 14px;
+    font-weight: bold;
+}
+.brandStory .en_lineHeight p{
+    line-height:20px;
+}
+.brandStory li{
+    padding-bottom: 7%;
+}
+.brandStory .mainContent > div{
+    flex: 1;
+}
+.brandStory .mainContent .img{
+    flex: 0.33;
+}
+.brandStory img{
+    width:100%;
+    display: block;
+}
+.brandHistory li{
+    overflow: hidden;
+    display: flex;
+    align-items:center ;
+
+}
+.brandHistory li .time{
+    font-size: 24px;
+    width: 110px;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+.brandHistory li .detail{
+    /*flex: 0 0 110px 0;*/
+    display: flex;
+    align-items:center ;
+    border-left: 1px solid #000;
+    flex-shrink: 0;
+    padding: 15px 0;
+    /*flex-wrap: wrap;*/
+}
+.brandHistory li .detail:before{
+    display: inline-block;
+    border-radius: 50%;
+    width: 12px;
+    height:12px;
+    background: #000;
+    content: '';
+    margin-left: -6px;
+    margin-right: 10px;
+}
+.brandHistory li:last-child .detail{
+    border-style: dashed;
+    position: relative;
+}
+.brandHistory li:last-child .detail:after{
+    width:1px;
+    content: '';
+    height:50%;
+    position: absolute;
+    top:0;
+    left: -1px;
+    background-color: #000;
+    display: block;
+}
+.brandHistory li p{
+    max-width: 670px;
+    line-height: 22px;
+}
+.brandHistory li img{
+    margin-right: 20px;
+}
+
+.brandStrength .body{
+    background-color: #164388;
+}
+.tit_strength{
+    margin: 10% 0 4%;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold
+}
+
+.team li{
+    background-size: auto 82%;
+    background-position: left top;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+}
+
+.team li:last-child{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.team li.first{
+    background-image:url("../imgs/PT/letterP.png");
+}
+.team li.second{
+    background-image:url("../imgs/PT/letterC.png");
+    background-position: right top;
+}
+.team li.third,.team li.fifth{
+    background-image:url("../imgs/PT/letterO.png");
+}
+.team li.fouth{
+    background-image:url("../imgs/PT/letterT.png");
+    background-position: right top;
+}
+.team li.sixth{
+    background-image:url("../imgs/PT/letterR.png");
+    background-position: right top;
+}
+.team li.seventh{
+    background-image:url("../imgs/PT/letterA.png");
+}
+.team li.eighth{
+    background-image:url("../imgs/PT/letterP.png");
+    background-position: right top;
+}
+
+.team li .innerBox{
+    background-size: auto 82%;
+    background-repeat: no-repeat;
+    display: flex;
+    padding:6% 0 2% 12%
+}
+.team li.first .innerBox{
+    background-image:url("../imgs/PT/letterA.png");
+    background-position:  top right;
+}
+.team li .img{
+    flex-shrink: 0;
+    width:21%;
+}
+.team li h4{
+    font-size: 20px;
+    font-weight: bold;
+}
+.team li .txt{
+    padding-left: 3%;
+    flex: 1;
+}
+.team li .txt span{
+    display: block;
+    font-weight: bold;
+    line-height: 30px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.team li .txt p{
+    line-height: 22px;
+    font-size: 14px;
+}
+.team li:nth-child(5) .txt p{
+
+    margin-top: 10px;
+}
+.team li.right p{
+    padding-right: 7%;
+}
+.team li.right .innerBox{
+    padding: 4% 4% 2% 5%;
+}
+.team li .item{
+    width:100%;
+}
+.team li .item dd{
+    width:50%;
+    float: left;
+    /*margin-right: 4%;*/
+}
+.team li.itemBox .innerBox{
+    padding-top:1%;
+    padding-bottom: 1%;
+}
+.team li.seventh .innerBox{
+    padding-left:20%;
+
+}
+
+.team li.eighth {
+    margin-left:10%;
+}
+
+
+.team li .item p{
+    /*width:40px;*/
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+    /*writing-mode:tb-rl;*/
+    /*font-weight: bold;*/
+    text-align: center;
+    margin-top: 13px;
+    max-width: 240px;
+}
+
+.team li .item img{
+    vertical-align: middle;
+    max-width: 240px;
+    width:100%;
+}
+
+
+.close{
+    position: absolute;
+    right:20px;
+    top:20px;
+    width:44px;
+    height:44px;
+    background-image: url("../imgs/PT/close.png");
+    cursor: pointer;
+    background-size: 100%;
+}
+.brandDynamicDetail .content h3{
+    text-align: center;
+    font-size: 20px;
+}
+.brandDynamicDetail .content > div{
+    margin: 10px 0;
+    text-align: center;
+}
+.brandDynamicDetail .content p{
+    text-align: left;
+    margin-top: 10px;
+    line-height: 26px;
+}
+@media only screen and (max-width: 1000px) {
+    .circle{
+        width:100px;
+        height:100px;
+        border-width: 7px;
+        line-height: 20px;
+
+    }
+    .circle h4 {
+        padding-top: 35px;
+        font-size: 16px;
+    }
+
+    .team li.seventh .innerBox{
+        padding-left:5%
+    }
+}
+@media only screen and (max-width: 767px) {
+    .inner{
+        padding: 20px;
+    }
+    .team li .innerBox {
+        padding: 0;
+    }
+    /*.team li .item p{*/
+    /*writing-mode:lr-tb;*/
+    /*padding: 10px 0;*/
+    /*display: block;*/
+    /*}*/
+}
+@media only screen and (max-width: 450px) {
+
+    .circle{
+        width:70px;
+        height:70px;
+        border-width: 3px;
+        line-height: 12px;
+        font-size: 16px;
+        transform: scale(0.6);
+
+    }
+    .circle h4 {
+        padding-top: 12px;
+        font-size: 12px;
+    }
+    .circle h4  p{
+        font-size: 12px;
+        transform: scale(0.8);
+    }
+    .circle i{
+        width:31px;
+        height: 11px;
+        display: block;
+        background: url("../imgs/img/icon.png") no-repeat -64px 0;
+        margin: 5px auto 0;
+    }
+    .circle i.left{
+        background-position-y:-142px;
+    }
+    .circle i.right{
+        background-position-y:-158px;
+    }
+
+    .bodyContent > div{
+        width:86%;
+        margin: 0 auto;
+
+    }
+    .mainContent{
+        display: block;
+    }
+    .brandStory h4{
+        font-size: 18px;
+    }
+    .brandDynamicDetailContent .tit{
+        font-size: 15px;
+    }
+    .brandDynamicDetailContent .tit h1{
+        font-size: 18px;
+    }
+    .team li {
+        background-size: auto auto;
+    }
+    .team li .innerBox {
+        background-size: auto auto;
+    }
+    .team li.eighth {
+        margin-left:0;
+    }
+
+    .team li h4{
+        font-size: 18px;
+
+    }
+    .team li .txt span{
+        font-size: 15px;
+    }
+
+    .brandDynamic  .content li img {
+        float: none;
+        width:100%;
+        padding: 0;
+        max-width: none;
+    }
+    .brandDynamic  .content li h4 {
+        margin:10px 0;
+
+    }
+    .brandDynamic  .content li .txt {
+        display: block;
+    }
+
+    .brandDynamic  .content li span {
+        float: right;
+    }
+    .brandDynamic  .content li p{
+        width:100%;
+    }
+    .brandHistory li .detail:before {
+        width: 8px;
+        height: 8px;
+        margin-right: 5px;
+        margin-left: -4px;
+    }
+
+    .brandHistory li .time {
+        font-size: 14px;
+        width: 60px;
+    }
+    .brandHistory li img {
+        margin-right: 10px;
+        width: 30px;
+    }
+    .brandHistory li p {
+        max-width: 210px;
+    }
+
+
+    .team li .innerBox {
+        display: block;
+        padding: 0;
+    }
+    .team li .innerBox .img{
+        width:100%;
+        margin: 10px auto;
+    }
+    .team li .item dd{
+        width:100% !important;
+    }
+
+    .team li .item dd:first-child{
+        margin-bottom: 5%;
+        padding-bottom: 5%;
+    }
+
+
+    .close{
+        width:30px;
+        height:30px;
+    }
+    .team li.first .innerBox{
+        background-position:  bottom right;
+    }
+}

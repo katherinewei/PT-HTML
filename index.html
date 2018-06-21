@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/lightgallery.css">
+    <link rel="stylesheet"  href="css/index.css"/>
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="content">
+            <div id="product">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" id="lightgallery">
+                        <!--<div class="swiper-slide" data-sub-html="<a href='http://www.baidu.com'>查看详情 >> </a>"  data-src="imgs/index/img.jpg" data-swiper-autoplay="15000"><div class="imgBox"><img src="imgs/index/img.jpg" /></div><i></i><a href="#">查看详情 >> </a> </div>-->
+                        <!--<div class="swiper-slide" data-sub-html="<a href='http://www.baidu.com'>查看详情 >> </a>" data-src="imgs/index/img.jpg" data-swiper-autoplay="15000"><div class="imgBox"><img src="imgs/index/img.jpg" /></div> <i></i> <a href="#">查看详情 >> </a></div>-->
+                        <!--<div class="swiper-slide"data-sub-html="<a href='http://www.baidu.com'>查看详情 >> </a>"  data-src="imgs/index/img.jpg" data-swiper-autoplay="15000"><div class="imgBox"><img src="imgs/index/img.jpg" /></div> <i></i> <a href="#">查看详情 >> </a></div>-->
+                    </div>
+                </div>
+
+            </div>
+            <div class="txt">
+                <p>真正的魅力，源于内心对自己的认同。<br/>
+                    寻找个人风格的过程无外乎就是寻找自己的过程。<br/>
+                    不仅在于你的服装、外表、气质，<br/>
+                    也同样藏着你对自我审视的态度。<br/>
+                    无论你是属于哪一种风格，<br/>
+                    PACO TORA都是你展现自我最好的选择。</p>
+                    <img src="imgs/PT/ewm.png"/>
+                   <p> PACO TORA，一个来自西班牙的著名设计师品牌。<br/>
+                    我们希望带给您最好产品及服务，并渴望成为您真诚的朋友。</p>
+            </div>
+            <img style="display: block" src="imgs/img/footerBg.png"/>
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/picturefill.min.js"></script>
+<script src="js/lightgallery-all.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $.ajax({
+            type: "GET",
+            url: api+"page_one",
+            dataType: "json",
+            success: function (res) {
+                var list = res.product, //数据
+                    html = [];
+                $.each(list,function (i,item) {
+                    html.push('<div class="swiper-slide" data-sub-html="<a href=\''+item.url+'\'>'+string.viewMore+' </a>"  data-src="'+item.logo+'" data-swiper-autoplay="15000"><div class="imgBox"><img src="'+item.logo+'" /></div><i></i><a href=\''+item.url+'\'>'+string.viewMore+' </a> </div>');
+                })
+
+                $('#lightgallery').html(html.join(''));
+                $('#product').append('<div class="swiper-button-prev"></div> <div class="swiper-button-next"></div>');
+                var certifySwiper = new Swiper('#product .swiper-container', {
+                    slidesPerView: 'auto',
+                    centeredSlides: true,
+                    loop: true,
+                    loopedSlides: 0,
+                    initialSlide :1,
+                    autoplay: true,
+//            nextButton: '.swiper-button-next',
+//            prevButton: '.swiper-button-prev',
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    on: {
+                        progress: function(progress) {
+
+                            for (i = 0; i < this.slides.length; i++) {
+                                var slide = this.slides.eq(i);
+                                var slideProgress = this.slides[i].progress;
+                                modify = 1;
+                                if (Math.abs(slideProgress) > 1) {
+                                    modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+                                }
+                                translate = slideProgress * modify * 282 + 'px';
+                                scale = 1 - Math.abs(slideProgress) / 5;
+                                zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+                                slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+                                slide.css('zIndex', zIndex);
+                                slide.css('opacity', 1);
+                                if (Math.abs(slideProgress) > 3) {
+                                    slide.css('opacity', 0);
+                                }
+                            }
+                        },
+                        setTransition: function(transition) {
+                            for (var i = 0; i < this.slides.length; i++) {
+                                var slide = this.slides.eq(i)
+                                slide.transition(transition);
+                            }
+
+                        }
+                    }
+
+                })
+
+
+            },
+            error:function (res) {
+               // console.log(res);
+                messageTip('无法获取产品');
+            }
+        });
+
+
+        var callback = function(){
+            $('#lightgallery').lightGallery();
+        }
+        browserRedirect(callback)
+
+
+
+        $('.txt p:eq(0)').html(string.index_introduce1);
+        $('.txt p:eq(1)').html(string.index_introduce2);
+       //
+    });
+
+
+</script>
+</body>
+</html>

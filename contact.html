@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container contactWrap">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="contactInner">
+            <div class="title">
+                <h3><b>ONLINE STORE</b><span>线上商城</span></h3>
+                <div class="border1"></div>
+            </div>
+
+            <ul class="ewm">
+                <li>
+                    <a href="https://j.youzan.com/_z4lah"><img src="imgs/contact/youzan.png"/> </a>
+                </li>
+                <li>
+                    <a href="https://pacotora.tmall.com/"><img src="imgs/contact/tmall.png"/> </a>
+                </li>
+
+                <li>
+                    <a href="https://pacotora.jd.com/"><img src="imgs/contact/jd.png"/> </a>
+                </li>
+            </ul>
+            <div class="title" style="margin-top: 15%">
+                <h3><b>CONTACT US</b><span>联系我们</span></h3>
+                <div class="border1"></div>
+            </div>
+            <div class="message">
+                <form>
+                    <div class="submit" ><input type="submit"/></div>
+                    <div class="input inputA"> <label><img src="imgs/contact/name.png"/> </label><div class="inputWrap"><input type="text" name="name" /></div></div>
+                    <div class="input inputA"> <label><img src="imgs/contact/tel.png"/> </label><div class="inputWrap"><input type="tel" name="tel" /></div></div>
+                    <div class="input inputA"> <label><img src="imgs/contact/email.png"/> </label><div class="inputWrap"><input type="email" name="email" /></div></div>
+                    <div class="input inputA"> <label><img src="imgs/contact/topic.png"/> </label><div class="inputWrap"><input type="text" name="topic" /></div></div>
+                    <div class="input inputTextarea"> <label><img src="imgs/contact/message.png"/> </label><div class="inputWrap "><textarea name="message" ></textarea></div></div>
+                </form>
+            </div>
+
+            <ul class="contactUs">
+                <li>
+                    <img src="imgs/contact/contact1.png"/>
+                    <p>广州图拉米拉贸易有限公司</p>
+                </li>
+                <li>
+                    <img src="imgs/contact/contact2.png"/>
+                    <p>020-62903830转8813  </p>
+                </li>
+                <li>
+                    <img src="imgs/contact/contact3.png"/>
+                    <p>广东省广州市花都区金狮大道10号</p>
+                </li>
+                <li>
+                    <img src="imgs/contact/contact4.png"/>
+                    <p>PT.BRAND@PACOTORA.COM</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script>
+
+    $('.contactUs li:eq(0) p').html(string.contactUs1);
+    $('.contactUs li:eq(1) p').html(string.contactUs2);
+    $('.contactUs li:eq(2) p').html(string.contactUs3);
+    $('.contactUs li:eq(3) p').html(string.contactUs4);
+
+//    $('.message .input textarea').css('line-height',$('.message .inputA').height()   +'px')
+//    $('.message .inputTextarea').css('height',$('.message .inputA').height() * (3+0.36));
+
+    //ajax
+
+
+
+$('.submit input').click(function(e){
+    e.preventDefault();
+    var data = {
+        name:$('input[name=name]').val(),
+        telephone:$('input[name=tel]').val(),
+        email:$('input[name=email]').val(),
+        topic:$('input[name=topic]').val(),
+        message:$('textarea[name=message]').val(),
+    }
+
+    if(!data.name){
+        messageTip('请输入姓名');
+        return
+    }
+    if(!data.telephone){
+        messageTip('请输入电话');
+        return
+    }
+    if (!(/^1[34578]\d{9}$/.test(data.telephone))) {
+        messageTip('请输入正确的电话');
+        return
+    }
+    if(!data.email){
+        messageTip('请输入邮箱');
+        return
+    }
+    if(!(/^\w+([-_.]\w+)*@(\w+[-.])+\w{2,5}$/.test(data.email))){
+        messageTip('请输入正确的邮箱');
+        return
+    }
+    if(!data.topic){
+        messageTip('请输入主题');
+        return
+    }
+    if(!data.message){
+        messageTip('请输入内容');
+        return
+    }
+
+
+            $.ajax({
+                type: "post",
+                url: api+"message",
+                data: data,
+                dataType: "json",
+                success: function(data){
+                    messageTip(data.message);
+                },
+                error:function () {
+                    messageTip('提交失败');
+                }
+
+            });
+})
+
+
+</script>
+</body>
+</html>

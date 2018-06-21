@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/pagination.css">
+    <link rel="stylesheet" href="css/PTWorld.css">
+
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container contactWrap">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="bodyContent">
+            <div class="brandDynamic">
+                <div class="title">
+                    <h3><b>BRAND DYNAMIC</b><span>品牌动态</span></h3>
+                    <div class="border1"></div>
+                </div>
+                <div class="content">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footerImg"> <img src="imgs/img/footerBg.png" /></div>
+
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script>
+
+    //ajax
+            $.ajax({
+                type: "GET",
+                url: api + "news?page=1&psize=10",
+                dataType: "json",
+                success: function(data){
+                    var news = data.news;
+                    if(news.length > 0){
+                        getHtml(news);
+                        $('.content').append('<div class="pagination m-style"></div>');
+
+                        $('.pagination').pagination({
+                            pageCount: data.count,
+                            mode:'fixed',
+                            callback: function (api_pagination) {
+                                var data = {
+                                    page: api_pagination.getCurrent(),
+                                    psize:10
+                                };
+
+                                $.getJSON(
+                                    api + "index.php/api/v1/news",
+                                    data,
+                                    function (result) {
+                                        getHtml(result.news);
+                                        // console.log(json);
+                                    });
+                            }
+                        });
+                    }
+                },
+                error:function () {
+                    messageTip('无法获取新闻列表');
+                }
+            });
+    
+    function getHtml(news) {
+        var newsHtml = [];
+
+        $.each(news,function (i,item) {
+            newsHtml.push(' <li><a href="brandDynamicDetail.html?id='+item.id+'"> <img src="'+item.logo+'"/><h4>'+item.title+'</h4><div class="txt"><p>'+delHtmlTag(item.remark)+'</p><span>'+item.create_date+'</span></div></a></li>');
+        });
+        $('.brandDynamic ul').html(newsHtml.join(''));
+    }
+
+    //去掉所有的html标记
+    function delHtmlTag(str){
+        return str.replace(/<[^>]+>/g,"");
+    }
+</script>
+</body>
+</html>

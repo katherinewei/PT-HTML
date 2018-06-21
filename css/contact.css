@@ -1,0 +1,179 @@
+html{
+    font-size: 14px;
+}
+.contactInner{
+    width:80%;
+    margin: 6% auto 3%;
+}
+.contactInner .title{
+    font-size: 20px;
+    margin-bottom: 5%;
+}
+.contactInner .title span{
+    font-size: 18px;
+}
+.ewm{
+    margin: 6% auto 3%;
+    overflow: hidden;
+}
+.ewm li{
+    float: left;
+    width:30%;
+    margin-right: 5%;
+
+}
+.ewm li:last-child{
+    margin-right: 0;
+}
+.message{
+    background: url("../imgs/contact/bg.png") no-repeat;
+    background-size: 100%;
+    width:89%;
+    margin: 0 auto;
+    /*height:808px;*/
+    height:0;
+    padding-bottom:96%
+}
+.message form{
+    width:70%;
+    margin: 0 auto;
+    padding-top:9%;
+}
+.message .submit{
+  text-align: right;
+    padding-bottom: 8%;
+}
+.message .submit input{
+    background: url("../imgs/contact/btn.jpg");
+    background-size: 100%;
+    width:131px;
+    height:63px;
+    border: none;
+    outline: none;
+    font-size: 0;
+
+}
+.message .input{
+
+    padding: 6px 0;
+    position: relative;
+    overflow: hidden;
+    background: url("../imgs/contact/line.png") no-repeat center bottom transparent;
+    /*height:49px;*/
+
+    outline: none;
+    width:100%;
+    font-size: 16px;
+    background-size: 100%;
+    display: flex;
+
+
+}
+
+.message .input img{
+    vertical-align: middle;
+    /*width:20%;*/
+    /*float: left;*/
+    /*position: absolute;*/
+    /*left:2%;*/
+    /*top:0;*/
+}
+.message .inputWrap{
+    height:100%;
+    flex: 2;
+
+}
+.message .inputWrap input,.message .input textarea{
+    border: none;
+    background-color: transparent;
+    height:100%;
+    outline: none;
+    width:100%;
+    line-height: 1;
+    font-size: 20px;
+    transform: rotate(-2deg);
+    /*float: left;*/
+}
+.message .inputTextarea{
+    height: 11rem;
+    background-repeat: repeat;
+    padding: 0;
+
+
+}
+.message .input textarea{
+        resize: none;
+    line-height: 3.6rem;
+}
+.contactUs{
+    overflow: hidden;
+}
+.contactUs li{
+    width:25%;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.contactUs li img{
+    padding-bottom: 10px;
+}
+.contactUs li p{
+    height:72px;
+    line-height: 24px;
+}
+@media only screen and (max-width: 1000px){
+    .message .inputTextarea{
+        height: 12rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .message .inputTextarea{
+        height: 6rem;
+    }
+
+    .message .inputWrap input{
+        font-size: 14px;
+    }
+    .message .input label{
+        flex:0.8;
+    }
+    .message .input img{
+      /*  width: 70%;*/
+    }
+    .message .input textarea{
+        line-height: 1.5rem;
+        font-size: 14px;
+        margin-top: -4%;
+
+    }
+
+    .message{
+        width:100%;
+    }
+
+    .contactInner{
+        width:100%;
+
+    }
+    .message .input{
+
+        padding: 4px 0;
+
+    }
+    .message .submit{
+        padding-bottom: 0;
+    }
+    .message .submit input{
+        width:60px;
+        height:29px;
+    }
+    .contactUs li{
+        width:50%;
+        font-size: 12px;
+    }
+    .contactUs li img{
+        width:38%;
+    }
+}

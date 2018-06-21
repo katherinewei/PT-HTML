@@ -1,0 +1,60 @@
+.contactInner{
+    background: url("../imgs/PT/bg.png") no-repeat;
+    /*height:922px;*/
+    margin-top: -40px;
+    z-index: 1;
+    position: relative;
+    background-size: 100%;
+    padding-bottom: 22%;
+    /*padding-bottom:96%*/
+}
+.txt{
+    text-align: center;
+    color: #ffffff;
+    /*padding-top:400px;*/
+    padding-top:32%;
+    font-size: 16px;
+    /*width:580px;*/
+    width:50%;
+    margin-left: 23%;
+    /*margin-left: 300px;*/
+    line-height: 20px;
+}
+.txt p{
+    color: #ffffff;
+}
+.txt img{
+    margin: 20px 0 15px;
+    width: 70%;
+}
+@media only screen and (max-width: 767px) {
+    .contactInner{
+        background-image: url("../imgs/PT/bg-mobile.png");
+        margin-top: -20px;
+    }
+    .txt {
+
+        padding-top: 48%;
+        width: 68%;
+        margin-left: 14%;
+        line-height: 20px;
+
+    }
+
+
+}
+@media only screen and (max-width: 450px) {
+    .txt {
+
+
+        font-size: 12px;
+        /*width:75%;*/
+        /*line-height: 16px;*/
+
+
+    }
+    .txt img{
+        width:60%;
+        margin: 5px 0 5px;
+    }
+}

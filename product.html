@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/lightgallery.css">
+    <link rel="stylesheet" href="实力/改/PTWorld.css">
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+        <div class="mainProducts">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="logo_b"><img src="imgs/product/logo.png"/> </div>
+                <div class="line"><img src="imgs/img/line.png"/> </div>
+            </div>
+        </div>
+
+        <div class="seriesProducts">
+            <div class="title">
+                <h3><b>Brand  series</b><span>品牌系列</span></h3>
+                <div class="border1"></div>
+            </div>
+
+            <div class="series series1">
+                <div class="s_tit">
+                    <img src="imgs/product/icon1.png"/>
+                    <h3>Be Yourself <b></b></h3>
+                    <span></span>
+                </div>
+                <div class="s_content" >
+                    <img src="imgs/product/bg.png"/>
+
+
+                </div>
+            </div>
+
+            <div class="series series2">
+                <div class="s_tit">
+                <img src="imgs/product/icon3.png"/>
+                    <h3>Playful <b></b></h3>
+                <span></span>
+                </div>
+                <div class="s_content">
+                    <img src="imgs/product/bg.png"/>
+                </div>
+            </div>
+
+            <div class="series series3">
+                <div class="s_tit">
+                    <img src="imgs/product/icon2.png"/>
+                    <h3>Classic <b></b></h3>
+                    <span></span>
+                </div>
+                <div class="s_content">
+                    <img src="imgs/product/bg.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script src="js/swiper-3.4.2.jquery.min.js"></script>
+<script src="js/picturefill.min.js"></script>
+<script src="js/lightgallery-all.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        $('.series .s_tit b').text(string.product_series);
+        $('.series1 .s_tit span').text(string.product_series1_p);
+        $('.series2 .s_tit span').text(string.product_series2_p);
+        $('.series3 .s_tit span').text(string.product_series3_p);
+
+        //ajax
+        $.ajax({
+            type: "GET",
+            url: api+"page_two",
+            dataType: "json",
+            success: function(data){
+
+                var productBanner = data.product_brand;
+
+                var product = data.product;
+
+                  //6张图片海报
+                 var swipeHtml = [];
+                 $.each(productBanner, function (i, item) {
+                    var itemHtml = [];
+                    $.each(item.img, function (i, itemThumb) {
+                        itemHtml.push(' <div class="item" data-src="' + itemThumb + '" > <img  src="' + itemThumb + '"/> </div>');
+                    })
+
+                    swipeHtml.push('<div class="swiper-slide"><a href="'+item.url+'"><div class="thumb">' + itemHtml.join('') + ' </div><div class="ImgContent"> <div class="img"> <img src="' + item.logo + '"/></div></div></a></div>');
+                })
+                 $('.swiper-wrapper').html(swipeHtml.join(''));
+
+                 //系列图
+                for(var i = 1; i < 4; i++){
+                    var seriesHtml = [],products = [];
+                    switch (i){
+                        case 1:
+                            products = product.product_2;
+                            break;
+                        case 2:
+                            products = product.product_3;
+                            break;
+                        case 3:
+                            products = product.product_4;
+                            break;
+                    }
+
+                    if(products) {
+                        $.each(products, function (i, item) {
+                            seriesHtml.push('<div class="item item' + (i + 1) + '"><div class="itemInner"  data-src="' + item.logo + '"  data-sub-html="<a href=\'' + item.url + '\'>' + string.viewMore + '  </a>"> <img src="' + item.logo + '"/><a href="' + item.url + '">' + string.viewMore + '</a></div></div>');
+
+                        })
+                    }
+                    $('.series'+i+' .s_content').append('<div class="series_c'+i+'">'+seriesHtml.join('')+'</div>');
+                }
+
+                //thumb图高度
+                var item = $('.thumb .item');
+                item.height(item.width());
+                $(' .ImgContent .img img').load(function () {
+                    var swipeImg = $(' .ImgContent .img').height();
+                    $('.ImgContent .txt').height(swipeImg);
+                })
+                //轮播
+                var swiper = new Swiper('.swiper-container', {
+//                    navigation: {
+//                        nextEl: '.swiper-button-next',
+//                        prevEl: '.swiper-button-prev',
+//                    },
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    loop: true,
+                });
+
+                $('.thumb').lightGallery({
+                    selector: '.item'
+                });
+
+                //移动端大图张开
+                var callback = function(){
+                    $('.series_c1,.series_c2,.series_c3,.thumb').lightGallery({
+                        selector: '.itemInner'
+                    });
+                }
+                browserRedirect(callback)
+            },
+            error:function () {
+
+            }
+
+        });
+
+    })
+
+</script>
+</body>
+</html>

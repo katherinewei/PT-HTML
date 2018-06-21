@@ -1,0 +1,446 @@
+/**reset**/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    color: #333;
+    font-family:Arial,'Microsoft YaHei';
+
+}
+body{
+    font-size: 14px;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    display: inline-block;
+}
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #c9c9ca;
+}
+
+
+.w1200{
+    width:100%;
+    max-width:1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #f5f5f5;
+
+}
+.header{
+    background-color: #666666;
+    height:30px;
+    color: #fff;
+}
+.header .w1200{
+    background-color: transparent;
+}
+.header ul{
+    overflow: hidden;
+}
+.header ul li{
+    float: left;
+    border-right:1px solid #999999;
+    padding:0 2%;
+    height:26px;
+    margin: 2px 0;
+
+}
+.header ul li:first-child{
+    padding-left: 0;
+}
+.header ul li:last-child{
+    border-right:0;
+}
+.header ul li a{
+    color: #fff;
+    font-size: 12px;
+    line-height: 26px;
+
+}
+.header ul li p{
+    border-radius: 5px;
+    border:1px solid #fff;
+    height:18px;
+    margin: 3px 0;
+}
+.header ul li p a{
+    padding: 0 5px;
+    line-height: 18px;
+    display: inline-block;
+}
+.header ul li p .active{
+    background-color: #fff;
+    color: #333;
+}
+.header ul li i{
+    height:26px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url("../imgs/img/icon.png");
+    margin-right: 5px;
+}
+.header ul li i.jd{
+    background-position: 0 0;
+    width:32px;
+}
+.header ul li i.tm{
+    background-position: -32px 0;
+    width:44px;
+}
+.header ul li i.yz{
+    background-position: -76px 0;
+    width:25px;
+}
+.container{
+    background: url("../imgs/img/backgroud.png") repeat top center;
+}
+.logoContainer{
+    background-color: #000;
+}
+.logo{
+    padding: 18px 0;
+    text-align: center;
+}
+.logoContainer img{
+    width:100%;
+    display: block;
+    margin: 0 auto;
+}
+.logo img{
+    width:auto;
+}
+.bodyHead{
+    background-color: #000000;
+}
+.nav{
+    /*background-color: #000000;*/
+    position: relative;
+    overflow: hidden;
+    /*width:77%;*/
+    /*margin: 0 auto;*/
+}
+.nav a{
+    /*position: absolute;*/
+    border-radius:50% ;
+    background-color: #fff;
+    color: #333;
+    width:100px;
+
+    text-align: center;
+    display: block;
+    height:100px;
+    float: left;
+    position: relative;
+    margin-left: 10%;
+    transition: all 0.5s ease 0s;
+    line-height: 24px;
+
+
+}
+.nav a span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 18px;
+}
+.navIndex,.navContact{
+    margin-top: 106px;
+}
+.navProduct,.navCLUB{
+    margin-top: 55px;
+}
+.navWORLD{
+    margin-top: 38px;
+}
+.navIndex.active,.navIndex:hover{
+    background-color: #ef1a2c;
+}
+.navProduct.active,.navProduct:hover{
+    background-color: #f9c8b9;
+}
+.navWORLD.active,.navWORLD:hover{
+    background-color: #294d8b;
+}
+.navCLUB.active,.navCLUB:hover{
+    background-color: #92cec6;
+}
+.navContact.active,.navContact:hover{
+    background-color: #efd832;
+}
+.nav a.active span,.nav a:hover span{
+    color: #fff;
+}
+.banner{
+    position: relative;
+    top:-30px;
+}
+.bannerInner{
+    /*margin-top: -35px;*/
+    /*width:1600px;*/
+    /*height:800px;*/
+    /*border: 2px solid #484848;*/
+    /*border-radius: 800px / 400px;*/
+    /*margin-left: -200px;*/
+    /*position: relative;*/
+    width:120%;
+    /*height:700px;*/
+    border:20px solid #4e4d4e;
+    margin-left: -12%;
+    background-color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+.banner img{
+    width:88%;
+}
+.bgBlack{
+    background-color: #f5f5f5;
+    width:100%;
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    z-index: 0;
+}
+/*.banner:before{*/
+    /*width:1538px;*/
+    /*height:769px;*/
+    /*border: 20px solid #3f3f3f;*/
+    /*content: '';*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top:2px;*/
+    /*border-radius: 769px / 384px;*/
+    /*left:0px;*/
+/*}*/
+.footerImg img{
+    display: block;
+}
+.footer{
+    background-color: #000000;
+    padding: 3% 0;
+    text-align: center;
+    line-height: 24px;
+}
+.footer > div{
+    display: inline-block;
+    vertical-align: middle;
+}
+.footer .leftContent{
+    width:68.3%;
+    border-right:1px solid #f3f4f3;
+    padding-top: 1%;
+}
+.footer .rightIcon{
+    width:30%;
+}
+.footer .rightIcon > div{
+    width:45%;
+    padding-left: 12%;
+}
+.footer .rightIcon a{
+    display: inline-block;
+    margin: 3% 12% 3% 0;
+    transition: opacity 0.2s ease 0s;
+}
+.footer .rightIcon a:hover{
+    opacity: 0.8;
+}
+.footer .rightIcon img{
+
+
+}
+.footer p{
+    color: #ffffff;
+    font-size: 14px;
+}
+
+
+.title{
+    width:76%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    font-size: 28px;
+}
+.title h3{
+    display: inline-block;
+    background-color: #f5f5f5;
+    padding:0 2% ;
+    z-index: 2;
+    position: relative;
+    font-weight: bold;
+}
+.title b{
+    display: block;
+    padding-bottom: 12px;
+}
+.title span{
+     font-size: 24px;
+     border-left:1px solid #000;
+     border-right:1px solid #000;
+     display: inline-block;
+     padding: 0 10px;
+     color: #000000;
+
+ }
+.border1{
+    position: absolute;
+    width:100%;
+    top:50%;
+    height:1px;
+    background-color: #000;
+}
+.contactWrap .title span{
+    color: #000;
+}
+
+.messageTips{
+    position: fixed;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    z-index: 99;
+
+}
+.messageTips p{
+    background-color: rgba(0,0,0,.7);
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 5px;
+    padding:7px 15px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .nav a{
+        margin-left: 7%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .nav a{
+        margin-left: 9%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .logo img{ width:40%; }
+    .nav a{
+        width:65px;
+        height:65px;
+        font-size: 12px;
+        margin-left: 8%;
+    }
+    .nav a span{
+        font-size: 14px;
+
+    }
+
+}
+@media only screen and (max-width: 450px) {
+    .header ul li{
+        padding: 0 1%;
+        font-size: 11px;
+    }
+    .nav a{
+        width:65px;
+        height:65px;
+        font-size: 12px;
+        margin-left: 2%;
+        line-height: 18px;
+
+
+    }
+    .nav a span{
+        font-size: 12px;
+    }
+    .navIndex, .navContact{
+        margin-top:84px; }
+    .banner{
+
+        top:-7px;
+    }
+    .bannerInner{
+        border-width:10px;
+    }
+    .footer p{
+        font-size: 12px;
+    }
+    .footer > div {
+        width:100% !important;
+    }
+    .footer .rightIcon > div{
+        margin: 15px auto 0;
+    }
+    .title{
+        font-size: 18px;
+    }
+    .title b{
+        margin-bottom: 5px;
+    }
+    .title span{
+        font-size: 14px;
+    }
+
+}

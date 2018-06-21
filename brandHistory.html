@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACO TORA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/PTWorld.css">
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="container contactWrap">
+    <div class="w1200">
+        <div class="bodyHead"></div>
+
+        <div class="bodyContent">
+            <div class="brandHistory">
+                <div class="title">
+                    <h3><b>BRAND HISTORY</b><span>品牌历程</span></h3>
+                    <div class="border1"></div>
+                </div>
+                <div class="content">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footerImg"> <img src="imgs/img/footerBg.png" /></div>
+
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/ch.js"></script>
+<script src="js/common.js"></script>
+<script>
+
+    var brandHistoryHtml = [];
+    var isEn = lang && lang == 'en';
+    $.each(brandHistory,function (i,item) {
+        var time = isEn ? 'IN ' + item.time : item.time +' 年';
+        var text = isEn ? item.text_en : item.text;
+        brandHistoryHtml.push('<li> <div class="time">'+time+'</div> <div class="detail"> <img src="imgs/PT/brandIcon'+(i+1)+'.png"/> <p>'+text+'</p> </div> </li>');
+    });
+    $('.brandHistory ul').append(brandHistoryHtml.join(''));
+
+
+</script>
+</body>
+</html>
